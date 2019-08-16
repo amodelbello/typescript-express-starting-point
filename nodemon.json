@@ -1,0 +1,6 @@
+{
+  "watch": ["app"],
+  "ext": "ts",
+  "ignore": ["app/**/*.spec.ts"],
+  "exec": "rm -rf dist && tsc && node dist/bin/run.js"
+}

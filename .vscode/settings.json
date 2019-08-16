@@ -1,0 +1,9 @@
+{
+  /*
+  // Because of this:
+  npm WARN @typescript-eslint/eslint-plugin@1.11.0 requires a peer of eslint@^5.0.0 but none is installed. You must install peer dependencies yourself.
+  npm WARN @typescript-eslint/parser@1.11.0 requires a peer of eslint@^5.0.0 but none is installed. You must install peer dependencies yourself.
+  // We'll need to check to see if there's an update to be able to use eslint@6
+  */
+  "prettier.eslintIntegration": false
+}
