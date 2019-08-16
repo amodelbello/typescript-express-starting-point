@@ -2,7 +2,11 @@
   "name": "typescript-express-starting-point",
   "public": false,
   "version": "0.1.0",
-  "description": "typescript-express-starting-point",
+  "description": "express, typescript, eslint & prettier, jest & supertest w/coverage, vscode debugging",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:amodelbello/typescript-express-starting-point.git"
+  },
   "main": "index.js",
   "scripts": {
     "start": "nodemon",
