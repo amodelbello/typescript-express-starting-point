@@ -3,7 +3,7 @@ module.exports = {
   testEnvironment: 'node',
   modulePathIgnorePatterns: [],
   collectCoverageFrom: ['**/*.ts'],
-  coveragePathIgnorePatterns: ['/dist/'],
+  coveragePathIgnorePatterns: ['/dist/', '/typings/'],
   coverageThreshold: {
     global: {
       statements: 100,

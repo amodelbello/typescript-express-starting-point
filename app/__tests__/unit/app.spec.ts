@@ -26,4 +26,10 @@ describe('Test app', () => {
       .get('/')
       .expect(200)
   })
+
+  it('Sends a request to /error`', async () => {
+    await request(app)
+      .get('/error')
+      .expect(500)
+  })
 })
