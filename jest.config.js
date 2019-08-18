@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  modulePathIgnorePatterns: [],
+  modulePathIgnorePatterns: ['/__fixtures__/'],
   collectCoverageFrom: ['**/*.ts'],
   coveragePathIgnorePatterns: ['/dist/', '/typings/'],
   coverageThreshold: {

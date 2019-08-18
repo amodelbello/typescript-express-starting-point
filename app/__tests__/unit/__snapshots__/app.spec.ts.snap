@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Runs from \`bin/run.ts\` 1`] = `
+Object {
+  "hello": "Hello from the server",
+}
+`;
+
+exports[`App Sends a request to /\` 1`] = `
+Object {
+  "hello": "Hello from the server",
+}
+`;
+
+exports[`App Sends a request to /error\` 1`] = `Object {}`;

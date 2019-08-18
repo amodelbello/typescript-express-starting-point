@@ -22,7 +22,7 @@ const config = {
         format: 'YYYY-MM-DD h:mm:SS A',
       }),
       printf(({ label, timestamp, level, message }): string => {
-        return `${timestamp} [${colors.cyan(label)}] ${colors.green(level)} : ${colors.gray(message)}`
+        return `${timestamp} [${colors.gray(label)}] ${colors.green(level)} : ${colors.gray(message)}`
       }),
     ),
   ),

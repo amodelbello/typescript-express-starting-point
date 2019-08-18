@@ -7,6 +7,8 @@ import { Server } from 'http'
 
 import * as logger from './logging'
 import { addFingerprintToRequest, logRequest, logResponse, logError } from './middleware'
+import itemsRouter from './routes/items'
+import { Port } from './types'
 dotenv.config()
 
 // We override console.log/error and send it to winston instead
@@ -18,11 +20,11 @@ export default class ExpressServer {
   public static defaultPort = process.env.DEFAULT_PORT || 3000
 
   public app: Application
-  private port: number | string
+  private port: Port = ExpressServer.defaultPort
   private httpServer!: Server
 
-  public constructor(port: number | string = '') {
-    this.port = port || ExpressServer.defaultPort
+  public constructor(port: Port = '') {
+    this.determinePort(port)
     this.app = express()
 
     this.app.use(bodyParser.json())
@@ -35,9 +37,19 @@ export default class ExpressServer {
     this.app.use(logError)
   }
 
+  private determinePort(port: Port): void {
+    /* istanbul ignore else */
+    if (port) {
+      this.port = port
+    } else if (process.env.NODE_ENV === 'testing') {
+      this.port = process.env.TESTING_PORT || 4001
+    } else {
+      this.port = ExpressServer.defaultPort
+    }
+  }
+
   private addRoutes(): void {
     this.app.get('/', (req, res, next): void => {
-      // throw new Error('hello error')
       res.json({ hello: 'Hello from the server' })
       next()
     })
@@ -45,6 +57,8 @@ export default class ExpressServer {
     this.app.get('/error', (): void => {
       throw new Error('Error')
     })
+
+    this.app.use('/items', itemsRouter)
   }
 
   public run(silent = false): void {

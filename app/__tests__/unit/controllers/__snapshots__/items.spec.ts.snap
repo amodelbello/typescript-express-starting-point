@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Items DELETE /items/:id\` 1`] = `
+Object {
+  "description": "Description of deleted item: this-is-a-test-item-id-1234",
+  "id": "this-is-a-test-item-id-1234",
+  "name": "Name of deleted item: this-is-a-test-item-id-1234",
+}
+`;
+
+exports[`Items GET /items/:id\` 1`] = `
+Object {
+  "description": "Description of item: this-is-a-test-item-id-1234",
+  "id": "this-is-a-test-item-id-1234",
+  "name": "Name of item: this-is-a-test-item-id-1234",
+}
+`;
+
+exports[`Items GET /items\` 1`] = `
+Array [
+  Object {
+    "description": "Description of the item",
+    "id": "id-123",
+    "name": "Name of the item",
+  },
+]
+`;
+
+exports[`Items POST /items\` 1`] = `
+Object {
+  "description": "Description of item: this-is-a-test-item-id-1234",
+  "id": "added-item-123",
+  "name": "Name of item: this-is-a-test-item-id-1234",
+}
+`;
+
+exports[`Items PUT /items/:id\` 1`] = `
+Object {
+  "description": "Description of item: this-is-a-test-item-id-1234",
+  "id": "this-is-a-test-item-id-1234",
+  "name": "Name of item: this-is-a-test-item-id-1234",
+}
+`;
