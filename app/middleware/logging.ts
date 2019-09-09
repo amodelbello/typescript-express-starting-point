@@ -34,7 +34,8 @@ Body: ${content}
 })
 
 export const logError = (err: Error, req: Request, res: Response): void => {
-  const error = logger.formatError(err.message)
-  logger.response.error(`f=${req.id}\n ${error}`)
-  // res.status(500).send(error)
+  if (err.message) {
+    const error = logger.formatError(err.message)
+    logger.response.error(`f=${req.id}\n Error: ${error}`)
+  }
 }
