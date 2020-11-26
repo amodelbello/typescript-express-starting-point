@@ -2,5 +2,5 @@
   "watch": ["app"],
   "ext": "ts",
   "ignore": ["app/**/*.spec.ts"],
-  "exec": "rm -rf dist && tsc && node dist/bin/run.js"
+  "exec": "rimraf dist && tsc && node dist/bin/run.js"
 }

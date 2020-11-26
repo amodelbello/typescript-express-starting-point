@@ -70,7 +70,7 @@ export default class ExpressServer {
   }
 
   private async startServer(port: number | string, silent: boolean): Promise<void> {
-    this.httpServer = await this.app.listen({ port }, (): void => {
+    this.httpServer = this.app.listen({ port }, (): void => {
       if (!silent) {
         logger.message.info(`⚡ Server ready @ //localhost:${port}`)
       }

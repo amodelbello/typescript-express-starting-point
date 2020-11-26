@@ -8,19 +8,22 @@ function methodHasBody(req: Request): boolean {
 }
 
 export const logRequest = (req: Request, res: Response, next: NextFunction): void => {
+  const filterOut = ['/favicon.ico']
   const headers = logger.formatMessage(req.headers)
-  const query = logger.formatMessage(req.query)
+  const query = logger.formatMessage(JSON.stringify(req.query))
   const body = logger.formatMessage(req.body)
 
-  let message = `
+  if (!filterOut.includes(req.url)) {
+    let message = `
 f=${req.id}
 ${req.method} ${req.url} ${res.statusCode}
 Query: ${query}
 `
-  message = methodHasBody(req) ? message + `Body: ${body}` : message
+    message = methodHasBody(req) ? message + `Body: ${body}` : message
 
-  logger.request.verbose(`f=${req.id} Headers: ${headers}`)
-  logger.request.info(message)
+    logger.request.verbose(`f=${req.id} Headers: ${headers}`)
+    logger.request.info(message)
+  }
   next()
 }
 
